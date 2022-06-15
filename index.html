@@ -27,5 +27,21 @@
       <font color="#FFF"><font face="arial"><h2 width="365px" height="30px" controls align="center"><p><b>系統將於<span id='timer'>1</span>毫秒後，自動跳轉</b></p></h2></font></font>
   </div>
 </div>
+    <!-- 語系跳轉頁面 -->
+    <script type="text/javascript">
+      var language = localStorage.getItem('locale') || window.navigator.language.toLowerCase() || 'en'
+       
+      localStorage.setItem('locale', language)
+      
+      if (language.indexOf("zh-tw") !== -1) {
+          window.location = 'https://www2.vun-video.tk/'
+        
+      } else if (language.indexOf('en') !== -1) {
+          window.location = '404'
+        
+      } else {
+          window.location = '404'
+      }
+    </script>
   </head>
 </html>
