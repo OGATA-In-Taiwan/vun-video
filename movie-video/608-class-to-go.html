@@ -2,28 +2,50 @@
     <!-- 網站小圖片 -->
     <link href="https://www17.ogata.tk/img/%E2%96%BAun.png" rel="shortcut icon"/>
 </head>
-<body id="video-box">
-<link rel="stylesheet" href="https://rawgit.com/JeremyShih/JAC_Dplayer/master/dist/DPlayer.min.css">
-<div id="player1"></div>
-<!-- ..... -->
-<script src="https://rawgit.com/JeremyShih/JAC_Dplayer/master/dist/DPlayer.min.js">
-</script>
-<script type="text/javascript">
-var dp = new DPlayer({
-    element: document.getElementById('player1'),
+
+<link rel="stylesheet" href="https://rawgit.com/JeremyShih/JAC_Dplayer/master/dist/DPlayer.min.css" />
+<div id="dplayer"></div>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+<script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dplayer/1.26.0/DPlayer.min.js"></script>
+<script>
+ const dp = new DPlayer({
+    container: document.getElementById('dplayer'),
+    autoplay: true,
+    theme: '#FADFA3',
+    loop: true,
     lang: 'zh-tw',
-    hotkey: true,
-    mutex: true,
     screenshot: true,
-    logo: "https://www17.ogata.tk/img/%E2%96%BAun.png",
+    hotkey: true,
+    preload: 'auto',
+    logo: 'https://www17.ogata.tk/img/%E2%96%BAun.png',
+    volume: 0.7,
+    mutex: true,
     video: {
-        quality: [{
-            name: '1080p',
-          url: 'https://cdn-cf-east.streamable.com/video/mp4/3i60tf.mp4?Expires=1657511460&Signature=epBKR043v6BUmesWBHAgbq8QNktR-n9fAEQd1ZIvFq8VgIOn2EuBOXUnEEqY7S1jWrAU3g4sFpW4Cy~i2lZ3maPYNUaMtE-zDYJnJEEqBlvTNX8pasA7KtIBIN9fRgq~LOMec3NnoJeVOsMUq7E7uYXJlY-YBepw5rq6z5fSYK0T~uLqNe~U0IidhYGkckSTvTap9FYjOcX-BPFQDAhof0KN3IMCOTm-BkQXppFz8dWau6c-BDTlRv30s-Qq4S-7mYvRXcVUppKiIoUXQD-BrQYE-Qfze3eIe2hQ3AhQ466tFFIs3jXkMH-eLQ5ITZIvxnLEQ2-SSXBbS61MmRCi9g__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ'
-        },{
-            name: '720p',
-            url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4'
-        }],
+        quality: [
+            {
+                name: '720p',
+                url: 'https://cdn-cf-east.streamable.com/video/mp4/3i60tf.mp4?Expires=1657532400&Signature=mv8hdNSlTQ4A4q9uvtKX9tdUIT~PSCm7r-yfD2I5r-S9rIt-WUJrL0cVi3zWzFZcRDsMo9BWJ80szNC2SLMkstEZA~6vUuy0MovTGMVV80wXcVlEx4f4V-bg0rIPj0zVFB3G97zahY~98knrL0pWuZGOJ7T1HkKDnkIL7PO7E9YB1PIuL4eukqrUmtlqHOIt3190zjIPZzze7UZ5rHO1p-k~mNIQG4OGus-Tfbz96An~s--PZBteK4HFODkXo4yj3bVdYKllGbtl0j9xqy7lTT7GihDNS4oINEx2cOho8AF03MDOso7DPLuhGB~HyNTvr79plU4aC236G~0nHibcsQ__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ',
+            },
+            {
+                name: '480p',
+                url: 'demo.mp4',
+            },
+            {
+                name: '240p',
+                url: 'demo.mp4',
+            },
+            {
+                name: '144p',
+                url: 'demo.mp4',
+            },
+        ],
+        defaultQuality: 0,
+        pic: 'demo.png',
+        thumbnails: 'thumbnails.jpg',
+    },
     subtitle: {
         url: 'dplayer.vtt',
         type: 'webvtt',
@@ -31,70 +53,15 @@ var dp = new DPlayer({
         bottom: '10%',
         color: '#b7daff',
     },
-        defaultQuality: 0,
-        pic:'',
-    },
     danmaku: {
         id: '9E2E3368B56CDBB4',
         api: 'https://api.prprpr.me/dplayer/',
         token: 'tokendemo',
-        maximum: 300,
+        maximum: 3000,
         addition: ['https://api.prprpr.me/dplayer/v3/bilibili?aid=4157142'],
         user: 'admin',
         bottom: '15%',
-        unlimited: true,
+        unlimited: false,
     },
 });
 </script>
-</body>
-<style>
-#video-box {
-  width: 100%;
-  height: 100%;
-}
-#player1 {
-  width: 100%;
-  margin: 0 auto;
-  height: 95%;
-}
-.intro {
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
-a {
-  text-decoration: none;
-}
-/* unvisited link */
-a:link {
-    color: red;
-}
-
-/* visited link */
-a:visited {
-    color: green;
-}
-
-/* mouse over link */
-a:hover {
-    color: brown;
-}
-
-/* selected link */
-a:active {
-    color: blue;
-}
-
-* { 
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    height: 100%;
-}
-body {
-    min-height: 100%;
-}
-</style>
